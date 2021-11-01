@@ -1,0 +1,86 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  margin: 50px 0;
+}
+
+.search {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px 3px;
+  outline: none;
+}
+
+thead {
+  display: table-header-group;
+  border-color: black;
+}
+
+table {
+  display: table-row;
+  border: 1px solid black;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.cn-body {
+  border: 3px solid black;
+}
+
+th,
+td {
+  border-bottom: 0.5px solid #eff2f5;
+  padding: 25px 20px;
+}
+
+td {
+  font-size: 14px;
+}
+
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+}
+
+.tableImage {
+  width: 30px;
+  height: auto;
+  object-fit: contain;
+  text-align: center;
+  align-items: center;
+  justify-self: center;
+  margin-right: 15px;
+}
+
+.inter,
+.tableName,
+.tablePrice,
+.table24h,
+.tableMarketCap,
+.tableVol,
+.tableCirSupply,
+.tableAth {
+  text-align: left;
+  font-size: 12px;
+}
+
+.symbol {
+  color: grey;
+  font-weight: 100;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <title>CryptoNation | Home</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Top 100 By Market Cap</h1>
+      <input class="search" type="text" placeholder="Search coin" />
+      <div class="table-container">
+        <table class="cn-table">
+          <thead>
+            <tr>
+              <th class="stickyTop"></th>
+              <th class="stickyTop inter">#</th>
+              <th class="stickyTop tableName">Name</th>
+              <th class="stickyTop tablePrice">Price</th>
+              <th class="stickyTop table24h">24h %</th>
+              <th class="stickyTop tableMarketCap">Market Cap</th>
+              <th class="stickyTop tableVol">Volume(24h)</th>
+              <th class="stickyTop tableAth">All Time High</th>
+              <th class="stickyTop tableCirSupply">Circulating Supply</th>
+            </tr>
+          </thead>
+          <tbody class="cn-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
