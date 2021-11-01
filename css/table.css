@@ -14,6 +14,10 @@ h1 {
   outline: none;
 }
 
+table {
+  border-collapse: inherit;
+}
+
 thead {
   display: table-header-group;
   border-color: black;
@@ -83,4 +87,15 @@ tr:hover {
 
 .negative {
   color: red;
+}
+
+.savedButton {
+  float: right;
+  border: none;
+  padding: 8px 35px;
+  border-radius: 30px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
 }

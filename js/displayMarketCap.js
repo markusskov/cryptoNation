@@ -1,3 +1,8 @@
+import {
+  getFromLocalStorage,
+  saveToLocalStorage,
+} from './libs/localStorage.js';
+
 export function displayMarketCap(marketCap) {
   const marketCapDOM = document.querySelector('.cn-body');
   marketCapDOM.innerHTML = '';
@@ -22,10 +27,27 @@ export function displayMarketCap(marketCap) {
     if (priceChange24H.includes('-')) {
       change = 'negative';
     }
+
+    // Change star to full if saved to favourite
+    const checkifSaved = getFromLocalStorage('savedCoins');
+    let starColor = 'far';
+    const isItSaved = checkifSaved.find((singleCoin) => {
+      return singleCoin.id === market.id;
+    });
+    if (isItSaved) {
+      starColor = 'fas';
+    }
+
     // Print To DOM
     marketCapDOM.innerHTML += `
     <tr>
-      <td><i class="far fa-star"></i></td>
+      <td><i class="${starColor} fa-star" data-id="${market.id}" data-rank="${
+      market.market_cap_rank
+    }"  data-name="${
+      market.name
+    }" data-symbol="${market.symbol.toUpperCase()}" data-image="${
+      market.image
+    }" data-price="${currentPrice}" data-change="${priceChange24H}" data-marketcap="${marketCapPrice}" data-volume="${volume}" data-ath="${allTimeHigh}" data-supply="${circulatingSupply}"></i></td>
       <td>${market.market_cap_rank}</td>
       <td><div class="imgContainer"><img class="tableImage" src="${
         market.image
@@ -48,6 +70,33 @@ export function displayMarketCap(marketCap) {
       star.onclick = () => {
         star.classList.toggle('fas');
         star.classList.toggle('far');
+
+        let coin = {
+          id: star.dataset.id,
+          rank: star.dataset.rank,
+          name: star.dataset.name,
+          symbol: star.dataset.symbol,
+          price: star.dataset.price,
+          change: star.dataset.change,
+          marketcap: star.dataset.marketcap,
+          volume: star.dataset.volume,
+          ath: star.dataset.ath,
+          supply: star.dataset.supply,
+          image: star.dataset.image,
+        };
+        let savedCoins = getFromLocalStorage('savedCoins');
+        let findCoin = savedCoins.find((singleCoin) => {
+          return singleCoin.id === star.dataset.id;
+        });
+        if (findCoin === undefined) {
+          savedCoins.push(coin);
+          saveToLocalStorage('savedCoins', savedCoins);
+        } else {
+          let removeSavedCoin = savedCoins.filter((singleCoin) => {
+            return singleCoin.id !== star.dataset.id;
+          });
+          saveToLocalStorage('savedCoins', removeSavedCoin);
+        }
       };
     });
   }
