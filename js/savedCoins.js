@@ -31,7 +31,7 @@ getSavedCoins.forEach((market) => {
     market.name
   } <span class="symbol">${market.symbol.toUpperCase()}</span></div></td>
       <td>$${market.price}</td>
-      <td class="${market.change}">${market.change}%</td>
+      <td class="${change}">${priceChange24H}%</td>
       <td>$${market.marketcap}</td>
       <td>$${market.volume}</td>
       <td>$${market.ath}</td>
