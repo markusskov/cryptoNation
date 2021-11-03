@@ -99,3 +99,11 @@ tr:hover {
   cursor: pointer;
   margin-bottom: 10px;
 }
+
+.fa-star {
+  z-index: 100;
+}
+
+tr {
+  z-index: 8;
+}

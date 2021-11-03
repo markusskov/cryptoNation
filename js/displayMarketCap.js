@@ -49,17 +49,29 @@ export function displayMarketCap(marketCap) {
       market.image
     }" data-price="${currentPrice}" data-change="${priceChange24H}" data-marketcap="${marketCapPrice}" data-volume="${volume}" data-ath="${allTimeHigh}" data-supply="${circulatingSupply}"></i></td>
       <td>${market.market_cap_rank}</td>
-      <td><div class="imgContainer"><img class="tableImage" src="${
-        market.image
-      }">${
+      <td><div class="imgContainer" onclick="window.location='/singleCoin.html?id=${
+        market.id
+      }'"><img class="tableImage" src="${market.image}">${
       market.name
     } <span class="symbol">${market.symbol.toUpperCase()}</span></div></td>
-      <td>$${currentPrice}</td>
-      <td class="${change}">${priceChange24H}%</td>
-      <td>$${marketCapPrice}</td>
-      <td>$${volume}</td>
-      <td>$${allTimeHigh}</td>
-      <td>${circulatingSupply} ${market.symbol.toUpperCase()}</td>
+      <td onclick="window.location='/singleCoin.html?id=${
+        market.id
+      }'">$${currentPrice}</td>
+      <td class="${change}" onclick="window.location='/singleCoin.html?id=${
+      market.id
+    }'">${priceChange24H}%</td>
+      <td onclick="window.location='/singleCoin.html?id=${
+        market.id
+      }'">$${marketCapPrice}</td>
+      <td onclick="window.location='/singleCoin.html?id=${
+        market.id
+      }'">$${volume}</td>
+      <td onclick="window.location='/singleCoin.html?id=${
+        market.id
+      }'">$${allTimeHigh}</td>
+      <td onclick="window.location='/singleCoin.html?id=${
+        market.id
+      }'">${circulatingSupply} ${market.symbol.toUpperCase()}</td>
     </tr>`;
   });
 
