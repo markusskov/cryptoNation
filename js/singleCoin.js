@@ -5,6 +5,7 @@ const params = new URLSearchParams(queryString);
 const id = params.get('id');
 
 const coinName = document.querySelector('.coinName');
+const price = document.querySelector('.price');
 
 export async function singleCoin() {
   const response = await axios.get(coinDetails + id);
@@ -12,6 +13,11 @@ export async function singleCoin() {
   console.log(coinInfo);
 
   coinName.innerHTML = coinInfo.name;
+
+  const currentPrice = parseFloat(
+    coinInfo.market_data.current_price.usd
+  ).toLocaleString('en-Us');
+  price.innerHTML = `$${currentPrice}`;
 }
 singleCoin();
 
@@ -53,7 +59,7 @@ async function chart() {
 }
 chart();
 
-export async function chartData() {
+async function chartData() {
   const response = await axios.get(
     `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7&interval=daily`
   );
